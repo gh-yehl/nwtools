@@ -1,8 +1,13 @@
 FROM ubuntu:14.04
 
-WORKDIR / ADD readme.txt . RUN chmod 644 readme.txt
+WORKDIR / 
 
-RUN apt-get update && apt-get -y install netcat-traditional && update-alternatives --config nc \
+ADD readme.txt . 
+
+RUN chmod 644 readme.txt && \
+
+#install nc
+apt-get update && apt-get -y install netcat-traditional && update-alternatives --config nc \
 
 #Install ifconfig 
 && apt-get install net-tools \
