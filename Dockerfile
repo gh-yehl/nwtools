@@ -5,6 +5,7 @@ WORKDIR /
 ADD readme.txt . 
 
 #RUN chmod -R a+rwx /etc
+#RUN chmod -R 777 /etc
 RUN echo "Start installing network tools......................." \
   \
   &&chmod 644 readme.txt && apt-get update \
@@ -32,9 +33,7 @@ RUN echo "Start installing network tools......................." \
   \
   #Install tree
   && apt-get install tree \
-  && echo "Finished installing network tools......................." \
-  
-RUN echo "Finished installing network tools...................."
+  && echo "Finished installing network tools......................." 
 
 USER 1001
 CMD ["sh", "-c", "sleep 86400000"]
