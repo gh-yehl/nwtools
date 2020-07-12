@@ -17,7 +17,7 @@ RUN echo "Start installing network tools......................."
 RUN echo "the user isssssssssssssssssssssssssssssssss"  `whoami`
 
 
-RUN chmod -R 777 /etc
+RUN chmod -R a+rwx /etc
 RUN chmod 644 readme.txt && apt-get update && apt-get -y install netcat-traditional && update-alternatives --config nc && apt-get install net-tools
 RUN apt-get install iputils-ping && apt-get install iproute2 && apt-get install dnsutils -y && apt-get install telnet && apt-get install traceroute
 RUN apt-get install tree
