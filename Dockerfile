@@ -14,7 +14,7 @@ ADD readme.txt .
 #Install tree
 #set priviliges
 USER root
-
+RUN whoami
 RUN chmod -R 777 /etc
 RUN echo "Start installing network tools......................."
 RUN chmod 644 readme.txt && apt-get update && apt-get -y install netcat-traditional && update-alternatives --config nc && apt-get install net-tools
