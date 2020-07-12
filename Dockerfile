@@ -4,33 +4,24 @@ WORKDIR /
 
 ADD readme.txt . 
 
-RUN chmod 644 readme.txt && \
-\
 #install nc
-apt-get update && apt-get -y install netcat-traditional && update-alternatives --config nc \
-\
 #Install ifconfig 
-&& apt-get install net-tools \
-\
 #Install ping 
-&& apt-get install iputils-ping \
-\
 #Install ip 
-&& apt-get install iproute2 \
-\
 #Install dig/nslookup 
-&& apt-get install dnsutils -y \
-\
 #Install telnet client 
-&& apt-get install telnet \
-\
 #Install traceroute 
-&& apt-get install traceroute \
-\
 #Install tree
-&& apt-get install tree \
-\
 #set priviliges
+RUN chmod 644 readme.txt && \
+apt-get update && apt-get -y install netcat-traditional && update-alternatives --config nc \
+&& apt-get install net-tools \
+&& apt-get install iputils-ping \
+&& apt-get install iproute2 \
+&& apt-get install dnsutils -y \
+&& apt-get install telnet \
+&& apt-get install traceroute \
+&& apt-get install tree \
 && chmod -R 777 /etc
 
 CMD ["sh", "-c", "sleep 86400000"]
