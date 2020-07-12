@@ -4,19 +4,10 @@ WORKDIR /
 
 ADD readme.txt . 
 
-
-
- 
-
-
-
-#set priviliges
-RUN echo "Start installing network tools......................."
-RUN echo "the user isssssssssssssssssssssssssssssssss"  `whoami`
-
-
 #RUN chmod -R a+rwx /etc
-RUN chmod 644 readme.txt && apt-get update \
+RUN echo "Start installing network tools......................." \
+  \
+  &&chmod 644 readme.txt && apt-get update \
   \
   #install nc
   && apt-get -y install netcat-traditional && update-alternatives --config nc \
@@ -40,9 +31,10 @@ RUN chmod 644 readme.txt && apt-get update \
   && apt-get install traceroute \
   \
   #Install tree
-  && apt-get install tree
+  && apt-get install tree \
+  && echo "Finished installing network tools......................." \
   
 RUN echo "Finished installing network tools...................."
 
 USER 1001
-ENTRYPOINT ["sh", "-c", "sleep 86400000"]
+CMD ["sh", "-c", "sleep 86400000"]
